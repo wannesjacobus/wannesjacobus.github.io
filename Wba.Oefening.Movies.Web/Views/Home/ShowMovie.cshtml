@@ -1,0 +1,27 @@
+﻿@model Wba.Oefening.Movies.Web.Models.HomeIndexMovieVm
+@using Wba.Oefening.Movies.Domain;
+@{
+    ViewData["Title"] = "ShowMovie";
+    Movie movie = Model.Movies[0];
+}
+
+    <h2>@movie.Title</h2>
+
+<ul>
+    <li>Genre: @movie.Genre</li>
+    <li>Actors:<ul>
+        @foreach (var actor in movie.Actors)
+        {
+            <li>@actor.FirstName @actor.SurName</li>
+        }
+        </ul>
+    </li> 
+    <li>Directors:  
+        <ul>
+            @foreach (var director in movie.Directors)
+            {
+                <li>@director.FirstName @director.SurName</li>
+            }
+        </ul>
+    </li>
+</ul>
